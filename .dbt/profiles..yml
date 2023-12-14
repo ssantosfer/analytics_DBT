@@ -1,0 +1,13 @@
+# example profiles.yml file
+company-name:
+  target: dev
+  outputs:
+    dev:
+      type: redshift
+      host: redshift-cluster-1.ckbtftqiyrh0.us-east-2.redshift.amazonaws.com
+      user: awsuser
+      password: Fer54321
+      port: 5432
+      dbname: dev
+      schema: public
+      threads: 1
