@@ -19,3 +19,12 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: tb_10_compradores
+    description: "Retorna os top 10 compradores da vase"
+    columns:
+      - name: vendas_totais
+        description: "Vendas totais por comprador"
+        tests:
+          - nao_negativo
+          - not_null

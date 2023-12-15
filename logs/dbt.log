@@ -3136,3 +3136,369 @@ KeyboardInterrupt
 [0m21:20:27.303771 [debug] [ThreadPool]: Opening a new connection, currently in state init
 [0m21:20:27.311844 [debug] [ThreadPool]: Redshift adapter: Establishing connection using ssl with `sslmode` set to 'prefer'.To connect without ssl, set `sslmode` to 'disable'.
 [0m21:20:27.317841 [debug] [ThreadPool]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:22:37.388086 [debug] [ThreadPool]: Redshift adapter: Got a retryable error when attempting to open a redshift connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+('connection time out', TimeoutError(110, 'Connection timed out'))
+[0m21:22:37.414043 [debug] [ThreadPool]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:24:52.504116 [debug] [ThreadPool]: Redshift adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.7.3", "profile_name": "analytics_dbt", "target_name": "dev", "connection_name": "list_dev"} */
+
+    select distinct nspname from pg_namespace
+[0m21:24:52.506026 [debug] [ThreadPool]: Redshift adapter: Rolling back transaction.
+[0m21:24:52.526109 [debug] [ThreadPool]: Redshift adapter: Error running SQL: macro list_schemas
+[0m21:24:52.528263 [debug] [ThreadPool]: Redshift adapter: Rolling back transaction.
+[0m21:24:52.534507 [debug] [ThreadPool]: On list_dev: No close available on handle
+[0m21:24:52.606027 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:24:52.607905 [debug] [MainThread]: Connection 'list_dev' was properly closed.
+[0m21:24:52.618413 [info ] [MainThread]: 
+[0m21:24:52.625462 [info ] [MainThread]: Finished running  in 0 hours 4 minutes and 25.34 seconds (265.34s).
+[0m21:24:52.643732 [error] [MainThread]: Encountered an error:
+Database Error
+  ('connection time out', TimeoutError(110, 'Connection timed out'))
+[0m21:24:52.684900 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 265.88763, "process_user_time": 2.659839, "process_kernel_time": 0.252816, "process_mem_max_rss": "112064", "process_out_blocks": "976", "command_success": false, "process_in_blocks": "0"}
+[0m21:24:52.697565 [debug] [MainThread]: Command `dbt run` failed at 21:24:52.695862 after 265.90 seconds
+[0m21:24:52.706530 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1d88e7b700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1d8552a6b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1d855a7d90>]}
+[0m21:24:52.713333 [debug] [MainThread]: Flushing usage events
+[0m21:25:47.697142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe6670ab700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe664fd21a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe664fd2140>]}
+
+
+============================== 21:25:47.705067 | 38dd4c31-77df-498f-8e9f-f02872b20489 ==============================
+[0m21:25:47.705067 [info ] [MainThread]: Running with dbt=1.7.3
+[0m21:25:47.706923 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/home/fer/analytics_DBT/logs', 'profiles_dir': '/home/fer/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:25:48.151387 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '38dd4c31-77df-498f-8e9f-f02872b20489', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe664fd21d0>]}
+[0m21:25:48.265633 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '38dd4c31-77df-498f-8e9f-f02872b20489', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe663f3c790>]}
+[0m21:25:48.266783 [info ] [MainThread]: Registered adapter: redshift=1.7.1
+[0m21:25:48.286970 [debug] [MainThread]: checksum: c95636796e12235e48c0560a0bb6a50e98827ef72e7ea1fe07a97c38c91661e1, vars: {}, profile: , target: , version: 1.7.3
+[0m21:25:48.377366 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:25:48.377931 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:25:48.383295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '38dd4c31-77df-498f-8e9f-f02872b20489', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe663759060>]}
+[0m21:25:48.399647 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '38dd4c31-77df-498f-8e9f-f02872b20489', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe66371e800>]}
+[0m21:25:48.400342 [info ] [MainThread]: Found 5 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 455 macros, 0 groups, 0 semantic models
+[0m21:25:48.400940 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '38dd4c31-77df-498f-8e9f-f02872b20489', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe66371e9b0>]}
+[0m21:25:48.402427 [info ] [MainThread]: 
+[0m21:25:48.403336 [debug] [MainThread]: Acquiring new redshift connection 'master'
+[0m21:25:48.413507 [debug] [ThreadPool]: Acquiring new redshift connection 'list_dev'
+[0m21:25:48.454663 [debug] [ThreadPool]: Using redshift connection "list_dev"
+[0m21:25:48.456075 [debug] [ThreadPool]: On list_dev: /* {"app": "dbt", "dbt_version": "1.7.3", "profile_name": "analytics_dbt", "target_name": "dev", "connection_name": "list_dev"} */
+
+    select distinct nspname from pg_namespace
+[0m21:25:48.457783 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:25:48.463752 [debug] [ThreadPool]: Redshift adapter: Establishing connection using ssl with `sslmode` set to 'prefer'.To connect without ssl, set `sslmode` to 'disable'.
+[0m21:25:48.464788 [debug] [ThreadPool]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:26:21.565824 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:26:21.566592 [debug] [MainThread]: Connection 'list_dev' was properly closed.
+[0m21:26:21.567288 [info ] [MainThread]: 
+[0m21:26:21.567953 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 33.16 seconds (33.16s).
+[0m21:26:21.568782 [error] [MainThread]: Encountered an error:
+
+[0m21:26:21.583862 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 572, in create_schemas
+    for ls_future in as_completed(list_futures):
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 245, in as_completed
+    waiter.event.wait(wait_timeout)
+  File "/usr/lib/python3.10/threading.py", line 607, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 90, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 168, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 197, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 244, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 284, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/main.py", line 625, in run
+    results = task.run()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 474, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 434, in execute_with_hooks
+    self.before_run(adapter, selected_uids)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/run.py", line 446, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 563, in create_schemas
+    with dbt.utils.executor(self.config) as tpe:
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 649, in __exit__
+    self.shutdown(wait=True)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 235, in shutdown
+    t.join()
+  File "/usr/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt
+
+[0m21:26:21.586226 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 33.94419, "process_user_time": 2.42046, "process_kernel_time": 1.542573, "process_mem_max_rss": "112376", "process_in_blocks": "1240", "process_out_blocks": "984", "command_success": false}
+[0m21:26:21.586923 [debug] [MainThread]: Command `dbt run` failed at 21:26:21.586765 after 33.94 seconds
+[0m21:26:21.587346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe6670ab700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe66371e3b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe66379ad40>]}
+[0m21:26:21.587773 [debug] [MainThread]: Flushing usage events
+[0m21:27:10.267465 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b6b9b2c80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b698d5ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b698d5f90>]}
+
+
+============================== 21:27:10.277685 | 17ef0b10-b39f-447e-9b90-3b98faa02885 ==============================
+[0m21:27:10.277685 [info ] [MainThread]: Running with dbt=1.7.3
+[0m21:27:10.278494 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/home/fer/analytics_DBT/logs', 'version_check': 'True', 'profiles_dir': '/home/fer/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:27:10.278973 [info ] [MainThread]: dbt version: 1.7.3
+[0m21:27:10.279397 [info ] [MainThread]: python version: 3.10.12
+[0m21:27:10.279810 [info ] [MainThread]: python path: /home/fer/dbt-env/bin/python
+[0m21:27:10.280479 [info ] [MainThread]: os info: Linux-6.2.0-37-generic-x86_64-with-glibc2.35
+[0m21:27:10.811388 [info ] [MainThread]: Using profiles dir at /home/fer/.dbt
+[0m21:27:10.815260 [info ] [MainThread]: Using profiles.yml file at /home/fer/.dbt/profiles.yml
+[0m21:27:10.815805 [info ] [MainThread]: Using dbt_project.yml file at /home/fer/analytics_DBT/dbt_project.yml
+[0m21:27:10.816579 [info ] [MainThread]: adapter type: redshift
+[0m21:27:10.817038 [info ] [MainThread]: adapter version: 1.7.1
+[0m21:27:10.939886 [info ] [MainThread]: Configuration:
+[0m21:27:10.940946 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:27:10.941434 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:27:10.941882 [info ] [MainThread]: Required dependencies:
+[0m21:27:10.942337 [debug] [MainThread]: Executing "git --help"
+[0m21:27:10.955000 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:27:10.955848 [debug] [MainThread]: STDERR: "b''"
+[0m21:27:10.956251 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:27:10.956577 [info ] [MainThread]: Connection:
+[0m21:27:10.957105 [info ] [MainThread]:   host: redshift-cluster-1.ckbtftqiyrh0.us-east-2.redshift.amazonaws.com
+[0m21:27:10.964486 [info ] [MainThread]:   user: awsuser
+[0m21:27:10.966209 [info ] [MainThread]:   port: 5439
+[0m21:27:10.966873 [info ] [MainThread]:   database: dev
+[0m21:27:10.967391 [info ] [MainThread]:   method: database
+[0m21:27:10.967863 [info ] [MainThread]:   cluster_id: None
+[0m21:27:10.968469 [info ] [MainThread]:   iam_profile: None
+[0m21:27:10.968845 [info ] [MainThread]:   schema: public
+[0m21:27:10.969251 [info ] [MainThread]:   sslmode: prefer
+[0m21:27:10.969619 [info ] [MainThread]:   region: None
+[0m21:27:10.970013 [info ] [MainThread]:   sslmode: prefer
+[0m21:27:10.970385 [info ] [MainThread]:   region: None
+[0m21:27:10.970767 [info ] [MainThread]:   iam_profile: None
+[0m21:27:10.971170 [info ] [MainThread]:   autocreate: False
+[0m21:27:10.971448 [info ] [MainThread]:   db_groups: []
+[0m21:27:10.971720 [info ] [MainThread]:   ra3_node: False
+[0m21:27:10.972046 [info ] [MainThread]:   connect_timeout: None
+[0m21:27:10.972332 [info ] [MainThread]:   role: None
+[0m21:27:10.972609 [info ] [MainThread]:   retries: 1
+[0m21:27:10.972906 [info ] [MainThread]:   autocommit: True
+[0m21:27:10.973299 [info ] [MainThread]: Registered adapter: redshift=1.7.1
+[0m21:27:10.974248 [debug] [MainThread]: Acquiring new redshift connection 'debug'
+[0m21:27:10.982697 [debug] [MainThread]: Using redshift connection "debug"
+[0m21:27:10.983647 [debug] [MainThread]: On debug: select 1 as id
+[0m21:27:10.984362 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:27:10.988793 [debug] [MainThread]: Redshift adapter: Establishing connection using ssl with `sslmode` set to 'prefer'.To connect without ssl, set `sslmode` to 'disable'.
+[0m21:27:10.989364 [debug] [MainThread]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:28:26.898708 [error] [MainThread]: Encountered an error:
+
+[0m21:28:26.921495 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 90, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/main.py", line 444, in debug
+    results = task.run()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/debug.py", line 153, in run
+    connection_status = self.test_connection()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/debug.py", line 472, in test_connection
+    connection_result = self.attempt_connection(self.profile)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/debug.py", line 450, in attempt_connection
+    adapter.debug_query()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/impl.py", line 170, in debug_query
+    self.execute("select 1 as id")
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/base/impl.py", line 310, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/connections.py", line 347, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/connections.py", line 372, in add_query
+    connection, cursor = super().add_query(
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/sql/connections.py", line 79, in add_query
+    cursor = connection.handle.cursor()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/contracts/connection.py", line 90, in handle
+    self._handle.resolve(self)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/contracts/connection.py", line 114, in resolve
+    return self.opener(connection)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/connections.py", line 330, in open
+    return cls.retry_connection(
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/base/connections.py", line 241, in retry_connection
+    connection.handle = connect()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/connections.py", line 194, in connect
+    c = redshift_connector.connect(
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/redshift_connector/__init__.py", line 396, in connect
+    return Connection(
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/redshift_connector/core.py", line 634, in __init__
+    self._usock.connect(hostport)
+KeyboardInterrupt
+
+[0m21:28:26.941021 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 76.73083, "process_user_time": 2.573747, "process_kernel_time": 2.03945, "process_mem_max_rss": "105956", "process_in_blocks": "144", "process_out_blocks": "32", "command_success": false}
+[0m21:28:26.945788 [debug] [MainThread]: Command `dbt debug` failed at 21:28:26.945178 after 76.74 seconds
+[0m21:28:26.952990 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:28:26.955512 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b6b9b2c80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b68f96410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b690194e0>]}
+[0m21:28:26.958106 [debug] [MainThread]: Flushing usage events
+[0m21:28:40.215932 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19533c3700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19510221a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1951022140>]}
+
+
+============================== 21:28:40.220125 | 501a7370-db25-4d6d-bb79-d5e70905967f ==============================
+[0m21:28:40.220125 [info ] [MainThread]: Running with dbt=1.7.3
+[0m21:28:40.220841 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/home/fer/analytics_DBT/logs', 'debug': 'False', 'profiles_dir': '/home/fer/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt test', 'send_anonymous_usage_stats': 'True'}
+[0m21:28:40.526096 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '501a7370-db25-4d6d-bb79-d5e70905967f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19510221d0>]}
+[0m21:28:40.610290 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '501a7370-db25-4d6d-bb79-d5e70905967f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194ff944c0>]}
+[0m21:28:40.611319 [info ] [MainThread]: Registered adapter: redshift=1.7.1
+[0m21:28:40.622032 [debug] [MainThread]: checksum: c95636796e12235e48c0560a0bb6a50e98827ef72e7ea1fe07a97c38c91661e1, vars: {}, profile: , target: , version: 1.7.3
+[0m21:28:40.667665 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:28:40.668508 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:28:40.675903 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '501a7370-db25-4d6d-bb79-d5e70905967f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194f7b5060>]}
+[0m21:28:40.695969 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '501a7370-db25-4d6d-bb79-d5e70905967f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194f77e800>]}
+[0m21:28:40.696660 [info ] [MainThread]: Found 5 models, 4 tests, 0 sources, 0 exposures, 0 metrics, 455 macros, 0 groups, 0 semantic models
+[0m21:28:40.697342 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '501a7370-db25-4d6d-bb79-d5e70905967f', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194f77e9b0>]}
+[0m21:28:40.698829 [info ] [MainThread]: 
+[0m21:28:40.699712 [debug] [MainThread]: Acquiring new redshift connection 'master'
+[0m21:28:40.702537 [debug] [ThreadPool]: Acquiring new redshift connection 'list_dev_public'
+[0m21:28:40.725774 [debug] [ThreadPool]: Using redshift connection "list_dev_public"
+[0m21:28:40.726472 [debug] [ThreadPool]: On list_dev_public: BEGIN
+[0m21:28:40.726893 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:28:40.730170 [debug] [ThreadPool]: Redshift adapter: Establishing connection using ssl with `sslmode` set to 'prefer'.To connect without ssl, set `sslmode` to 'disable'.
+[0m21:28:40.730619 [debug] [ThreadPool]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:30:24.048426 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:30:24.079022 [debug] [MainThread]: Connection 'list_dev_public' was properly closed.
+[0m21:30:24.120990 [info ] [MainThread]: 
+[0m21:30:24.131616 [info ] [MainThread]: Finished running  in 0 hours 1 minutes and 43.38 seconds (103.38s).
+[0m21:30:24.140277 [error] [MainThread]: Encountered an error:
+
+[0m21:30:24.181513 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/base/impl.py", line 492, in _relations_cache_for_schemas
+    for future in as_completed(futures):
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 245, in as_completed
+    waiter.event.wait(wait_timeout)
+  File "/usr/lib/python3.10/threading.py", line 607, in wait
+    signaled = self._cond.wait(timeout)
+  File "/usr/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 90, in wrapper
+    result, success = func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 75, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 168, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 197, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 244, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/requires.py", line 284, in wrapper
+    return func(*args, **kwargs)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/cli/main.py", line 894, in test
+    results = task.run()
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 474, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 434, in execute_with_hooks
+    self.before_run(adapter, selected_uids)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/run.py", line 447, in before_run
+    self.populate_adapter_cache(adapter, required_schemas)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/task/runnable.py", line 412, in populate_adapter_cache
+    adapter.set_relations_cache(self.manifest)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/base/impl.py", line 519, in set_relations_cache
+    self._relations_cache_for_schemas(manifest, required_schemas)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/redshift/impl.py", line 151, in _relations_cache_for_schemas
+    super()._relations_cache_for_schemas(manifest, cache_schemas)
+  File "/home/fer/dbt-env/lib/python3.10/site-packages/dbt/adapters/base/impl.py", line 481, in _relations_cache_for_schemas
+    with executor(self.config) as tpe:
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 649, in __exit__
+    self.shutdown(wait=True)
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 235, in shutdown
+    t.join()
+  File "/usr/lib/python3.10/threading.py", line 1096, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.10/threading.py", line 1116, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt
+
+[0m21:30:24.211990 [debug] [MainThread]: Resource report: {"command_name": "test", "command_wall_clock_time": 104.03104, "process_user_time": 2.053321, "process_kernel_time": 0.710026, "process_mem_max_rss": "112396", "process_in_blocks": "16", "process_out_blocks": "976", "command_success": false}
+[0m21:30:24.229261 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f19533c3700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194f77e3b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f194f7f7a60>]}
+[0m21:30:24.232741 [debug] [MainThread]: Flushing usage events
+[0m21:33:11.765873 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd5fb6bf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd3ede020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd3eddfc0>]}
+
+
+============================== 21:33:11.772583 | 1deb5db2-14f9-4688-8c9e-0483582854ea ==============================
+[0m21:33:11.772583 [info ] [MainThread]: Running with dbt=1.7.3
+[0m21:33:11.773956 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/home/fer/.dbt', 'log_path': '/home/fer/analytics_DBT/logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m21:33:11.775023 [info ] [MainThread]: dbt version: 1.7.3
+[0m21:33:11.775922 [info ] [MainThread]: python version: 3.10.12
+[0m21:33:11.777135 [info ] [MainThread]: python path: /home/fer/dbt-env/bin/python
+[0m21:33:11.778053 [info ] [MainThread]: os info: Linux-6.2.0-37-generic-x86_64-with-glibc2.35
+[0m21:33:12.125262 [info ] [MainThread]: Using profiles dir at /home/fer/.dbt
+[0m21:33:12.126054 [info ] [MainThread]: Using profiles.yml file at /home/fer/.dbt/profiles.yml
+[0m21:33:12.126758 [info ] [MainThread]: Using dbt_project.yml file at /home/fer/analytics_DBT/dbt_project.yml
+[0m21:33:12.127509 [info ] [MainThread]: adapter type: redshift
+[0m21:33:12.128020 [info ] [MainThread]: adapter version: 1.7.1
+[0m21:33:12.279482 [info ] [MainThread]: Configuration:
+[0m21:33:12.281631 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:33:12.285062 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:33:12.286947 [info ] [MainThread]: Required dependencies:
+[0m21:33:12.289091 [debug] [MainThread]: Executing "git --help"
+[0m21:33:12.329382 [debug] [MainThread]: STDOUT: "b"usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:33:12.340936 [debug] [MainThread]: STDERR: "b''"
+[0m21:33:12.343034 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:33:12.345361 [info ] [MainThread]: Connection:
+[0m21:33:12.346681 [info ] [MainThread]:   host: redshift-cluster-1.ckbtftqiyrh0.us-east-2.redshift.amazonaws.com
+[0m21:33:12.347356 [info ] [MainThread]:   user: awsuser
+[0m21:33:12.348851 [info ] [MainThread]:   port: 5439
+[0m21:33:12.351990 [info ] [MainThread]:   database: dev
+[0m21:33:12.354507 [info ] [MainThread]:   method: database
+[0m21:33:12.356743 [info ] [MainThread]:   cluster_id: None
+[0m21:33:12.357841 [info ] [MainThread]:   iam_profile: None
+[0m21:33:12.358966 [info ] [MainThread]:   schema: public
+[0m21:33:12.359655 [info ] [MainThread]:   sslmode: prefer
+[0m21:33:12.360681 [info ] [MainThread]:   region: None
+[0m21:33:12.361352 [info ] [MainThread]:   sslmode: prefer
+[0m21:33:12.362352 [info ] [MainThread]:   region: None
+[0m21:33:12.363085 [info ] [MainThread]:   iam_profile: None
+[0m21:33:12.372526 [info ] [MainThread]:   autocreate: False
+[0m21:33:12.374968 [info ] [MainThread]:   db_groups: []
+[0m21:33:12.376876 [info ] [MainThread]:   ra3_node: False
+[0m21:33:12.379381 [info ] [MainThread]:   connect_timeout: None
+[0m21:33:12.380785 [info ] [MainThread]:   role: None
+[0m21:33:12.381772 [info ] [MainThread]:   retries: 1
+[0m21:33:12.383614 [info ] [MainThread]:   autocommit: True
+[0m21:33:12.385912 [info ] [MainThread]: Registered adapter: redshift=1.7.1
+[0m21:33:12.387750 [debug] [MainThread]: Acquiring new redshift connection 'debug'
+[0m21:33:12.396397 [debug] [MainThread]: Using redshift connection "debug"
+[0m21:33:12.397727 [debug] [MainThread]: On debug: select 1 as id
+[0m21:33:12.399063 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:33:12.409515 [debug] [MainThread]: Redshift adapter: Establishing connection using ssl with `sslmode` set to 'prefer'.To connect without ssl, set `sslmode` to 'disable'.
+[0m21:33:12.410788 [debug] [MainThread]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:35:23.280929 [debug] [MainThread]: Redshift adapter: Got a retryable error when attempting to open a redshift connection.
+1 attempts remaining. Retrying in 0 seconds.
+Error:
+('connection time out', TimeoutError(110, 'Connection timed out'))
+[0m21:35:23.283947 [debug] [MainThread]: Redshift adapter: Connecting to redshift with username/password based auth...
+[0m21:37:34.389364 [debug] [MainThread]: Redshift adapter: Error running SQL: select 1 as id
+[0m21:37:34.391499 [debug] [MainThread]: Redshift adapter: Rolling back transaction.
+[0m21:37:34.393174 [debug] [MainThread]: On debug: No close available on handle
+[0m21:37:34.393997 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m21:37:34.394998 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:37:34.396112 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  ('connection time out', TimeoutError(110, 'Connection timed out'))
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m21:37:34.400446 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 262.70914, "process_user_time": 2.900534, "process_kernel_time": 0.338847, "process_mem_max_rss": "106264", "process_out_blocks": "40", "command_success": false, "process_in_blocks": "0"}
+[0m21:37:34.402592 [debug] [MainThread]: Command `dbt debug` failed at 21:37:34.402242 after 262.71 seconds
+[0m21:37:34.403449 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:37:34.404148 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd5fb6bf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd35ea530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ffbd3903160>]}
+[0m21:37:34.405300 [debug] [MainThread]: Flushing usage events
